@@ -1,11 +1,15 @@
+import React from "react";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
-    <div className="flex items-center justify-center h-screen bg-sky-100">
-      <h1 className="text-4xl font-bold text-blue-600">
+    <div className="min-h-screen flex flex-col bg-blue-300">
+      <Navbar />
+      <div className="flex-grow flex items-center justify-center text-white text-4xl font-bold">
         Hello from Journee 🌴
-      </h1>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
