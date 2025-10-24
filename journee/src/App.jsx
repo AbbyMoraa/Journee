@@ -1,14 +1,23 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import Destinations from "./pages/Destinations";
+import Login from "./pages/Login";
+import About from "./pages/About";
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-blue-300">
-      <Navbar />
-      <div className="flex-grow flex items-center justify-center text-white text-4xl font-bold">
-        Hello from Journee 🌴
-      </div>
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
