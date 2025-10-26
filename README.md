@@ -1,4 +1,4 @@
-##Journee by Abigael Momanyi.
+## Journee by Abigael Momanyi.
 
 Journee is a modern web app that makes discovering new destinations effortless and personalized. It brings travel inspiration, real-time images, and personalized collections into one smooth, interactive experience.
 
