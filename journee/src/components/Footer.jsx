@@ -1,31 +1,24 @@
-import React from "react";
-
 export default function Footer() {
   return (
-    <footer className="bg-white shadow-inner mt-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center">
-        <p className="text-gray-500 text-sm text-center md:text-left">
+    <footer className="bg-gradient-to-r from-[#F8E7C9] to-[#D1F0E1] text-amber-900 shadow-inner mt-0">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-6 flex flex-col md:flex-row justify-between items-center">
+        <p className="text-sm text-center md:text-left">
           &copy; {new Date().getFullYear()} Journee. All rights reserved.
         </p>
-        <div className="flex space-x-4 mt-2 md:mt-0">
+
+        <div className="flex flex-wrap justify-center md:justify-end space-x-4 mt-3 md:mt-0 text-sm">
           <a
             href="https://www.pexels.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-blue-500 transition-colors text-sm"
+            className="hover:text-teal-700 transition-colors"
           >
             Images by Pexels
           </a>
-          <a
-            href="#"
-            className="text-gray-400 hover:text-blue-500 transition-colors text-sm"
-          >
+          <a href="#" className="hover:text-teal-700 transition-colors">
             Privacy Policy
           </a>
-          <a
-            href="#"
-            className="text-gray-400 hover:text-blue-500 transition-colors text-sm"
-          >
+          <a href="#" className="hover:text-teal-700 transition-colors">
             Terms of Service
           </a>
         </div>
@@ -33,3 +26,4 @@ export default function Footer() {
     </footer>
   );
 }
+

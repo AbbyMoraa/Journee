@@ -1,41 +1,32 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div
-      className="relative min-h-screen bg-cover bg-center flex flex-col justify-center items-center text-center p-8"
+    <main className="relative w-full bg-cover bg-center flex flex-col justify-center items-center text-center"
       style={{
         backgroundImage:
-          "url('https://media.istockphoto.com/id/1442179368/photo/maldives-island.jpg?s=612x612&w=0&k=20&c=t38FJQ6YhyyZGN91A8tpn3nz9Aqcy_aXolImsOXOZ34=')",
+          "url('https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?_gl=1*vixuyz*_ga*MTQ0Mzk4OTAxNC4xNzU5MDYzNTA1*_ga_8JE65Q40S6*czE3NjE0OTY2MjckbzckZzEkdDE3NjE0OTgxMTYkajU2JGwwJGgw')",
       }}
     >
-      {/* Dark overlay for text readability */}
-      
-      {/* Hero Text */}
-      <h1 className="relative text-5xl font-extrabold text-white mb-6">
-        Roam the Earth with Journee 
-      </h1>
-      <p className="relative text-gray-100 max-w-xl mb-8">
-        Discover breathtaking destinations, plan your next adventure, and make memories that last a lifetime.
-      </p>
+      <div className="absolute inset-0 bg-black/40"></div>
 
-      {/* Buttons */}
-      <div className="relative flex flex-col sm:flex-row gap-4">
-        <Link
-          to="/destinations"
-          className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
-        >
-          Explore Destinations
-        </Link>
-        <Link
-          to="/login"
-          className="bg-white border border-blue-500 text-blue-500 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-        >
-          Login
-        </Link>
+      <div className="relative z-10 flex flex-col justify-center items-center px-6 py-20 sm:py-32 md:py-40 min-h-screen">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-sky-100 mb-6 drop-shadow-lg">
+          Roam the Earth with Journee
+        </h1>
+        <p className="text-white text-lg md:text-xl mb-8 drop-shadow-md max-w-xl">
+          Discover breathtaking destinations, plan your next adventure, and make memories that last a lifetime.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link
+            to="/destinations"
+            className="bg-sky-200 text-amber-800 px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition-colors"
+          >
+            Explore Destinations
+          </Link>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
-

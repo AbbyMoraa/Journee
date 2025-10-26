@@ -1,15 +1,24 @@
-
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"; 
 
 const firebaseConfig = {
-  apiKey: "YOUR_FIREBASE_API_KEY",
-  authDomain: "YOUR_FIREBASE_AUTH_DOMAIN",
-  projectId: "YOUR_FIREBASE_PROJECT_ID",
-  storageBucket: "YOUR_FIREBASE_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_FIREBASE_SENDER_ID",
-  appId: "YOUR_FIREBASE_APP_ID",
+  apiKey: "AIzaSyDon2CB8e-FKtJRH-PIwPXk5RiyEpzTScI",
+  authDomain: "journee-749bd.firebaseapp.com",
+  projectId: "journee-749bd",
+  storageBucket: "journee-749bd.appspot.com",
+  messagingSenderId: "149624148257",
+  appId: "1:149624148257:web:73848145911d0e335d6e60",
+  measurementId: "G-3P8QRNTNWE"
 };
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const db = getFirestore(app); 
+
+
+
+
+
+
+
