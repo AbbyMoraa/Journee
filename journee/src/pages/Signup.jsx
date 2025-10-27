@@ -20,7 +20,7 @@ export default function Signup() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       setMessage("");
-      navigate("/"); // Redirect after signup
+      navigate("/"); 
     } catch (error) {
       let msg = error.message;
       if (msg.includes("auth/email-already-in-use"))
@@ -32,9 +32,9 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-blue-100">
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-[#F8E7C9] to-[#D1F0E1]">
       <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-blue-500">Sign Up</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-teal-700">Sign Up</h2>
         {message && (
           <p className="text-red-500 mb-4 text-center break-words">{message}</p>
         )}
@@ -55,7 +55,7 @@ export default function Signup() {
           />
           <button
             type="submit"
-            className="bg-blue-500 text-white rounded-lg py-2 font-semibold hover:bg-blue-600 transition-colors"
+            className="bg-teal-700 text-white rounded-lg py-2 font-semibold hover:bg-teal-600 transition-colors"
           >
             Sign Up
           </button>

@@ -29,8 +29,8 @@ export default function Login() {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-[#F8E7C9] to-[#D1F0E1]">
       <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">
-          Login
+        <h2 className="text-2xl font-bold mb-6 text-center text-teal-700">
+          LOGIN
         </h2>
 
         {message && (
@@ -56,7 +56,7 @@ export default function Login() {
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white rounded-lg py-2 font-semibold hover:bg-blue-600 transition-colors"
+            className="bg-teal-700 text-white rounded-lg py-2 font-semibold hover:bg-teal-600 transition-colors"
           >
             Login
           </button>

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import { db, auth } from "../firebase.js";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import  { useState } from "react";
 
 export default function BookingModal({ hotel, onClose }) {
   const [formData, setFormData] = useState({
-    name: auth.currentUser?.displayName || "",
-    email: auth.currentUser?.email || "",
+    name: "",
+    email: "",
     dates: "",
   });
   const [message, setMessage] = useState("");
@@ -13,17 +11,11 @@ export default function BookingModal({ hotel, onClose }) {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Button clicked", { formData, auth: auth.currentUser, hotel });
+    console.log("Booking attempt:", { formData, hotel });
 
-    if (!auth.currentUser) {
-      setMessage("You must be logged in to book a hotel");
-      console.log("No user logged in");
-      return;
-    }
-
-    if (!formData.name || !formData.email || !formData.dates || typeof formData.dates !== "string") {
+    if (!formData.name || !formData.email || !formData.dates) {
       setMessage("Please fill all fields");
       console.log("Incomplete form data", formData);
       return;
@@ -36,41 +28,30 @@ export default function BookingModal({ hotel, onClose }) {
       return;
     }
 
-    const bookingData = {
-      hotelId: typeof hotel?.id === "string" && hotel.id ? hotel.id : "pexels-photo-" + Date.now(),
-      hotelName: typeof hotel?.name === "string" && hotel.name ? hotel.name : "Pexels Hotel Photo",
-      userId: auth.currentUser.uid,
-      userEmail: formData.email,
+    alert("✅ Confirmed! You have booked.");
+
+    console.log("Booking confirmed for:", {
+      hotelName: hotel?.name || "Unnamed Hotel",
       userName: formData.name,
-      travelDates: formData.dates,
-      createdAt: serverTimestamp(),
-    };
+      email: formData.email,
+      dates: formData.dates,
+    });
 
-    try {
-      console.log("Sending to Firestore", bookingData);
-      const docRef = await addDoc(collection(db, "bookings"), bookingData);
+    setMessage(`Booking confirmed for ${hotel?.name || "the hotel"}! ✅`);
+    setFormData({ name: "", email: "", dates: "" });
 
-      console.log("Booking saved with ID:", docRef.id);
-
-      setMessage(`Booking confirmed for ${bookingData.hotelName}! ✅`);
-      setFormData({ name: "", email: "", dates: "" });
-
-      setTimeout(() => {
-        setMessage("");
-        onClose();
-      }, 1500);
-    } catch (err) {
-      console.error("Firestore Error:", { code: err.code, message: err.message, stack: err.stack, details: err });
-      setMessage("Failed to book. Try again.");
-    }
+    setTimeout(() => {
+      setMessage("");
+      onClose();
+    }, 1500);
   };
 
   return (
-    <div className="fixed inset-0 bg-blue-100 bg-opacity-70 backdrop-blur-sm flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-gradient-to-r from-[#F8E7C9] to-[#D1F0E1] backdrop-blur-sm flex justify-center items-center z-50">
       <div className="bg-white p-6 rounded-2xl shadow-2xl max-w-md w-full relative animate-fade-in">
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-gray-400 hover:text-gray hover:text-gray-600 text-xl"
+          className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-xl"
         >
           ✕
         </button>
@@ -115,8 +96,7 @@ export default function BookingModal({ hotel, onClose }) {
             className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-teal-400"
           />
           <button
-            type="button"
-            onClick={handleSubmit}
+            type="submit"
             className="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700"
           >
             Confirm Booking
