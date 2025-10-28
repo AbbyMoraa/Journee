@@ -23,12 +23,12 @@ export default function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename ="Journee">
       <div className="flex flex-col min-h-screen">
         <Navbar user={user} />
 
         <main className="flex-grow">
-          <Routes>
+          <Routes >
             <Route path="/" element={<Home />} />
             <Route path="/destinations" element={<Destinations />} />
             <Route path="/hotels/:destinationName" element={<Hotels />} />
